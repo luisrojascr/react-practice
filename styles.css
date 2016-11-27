@@ -2,7 +2,7 @@ body{
 	padding-top:20px; 
 }
 
-.centerBlock > div{
+header, .comidas div{
 	background-color: #f2f2f2;
 	border: 1px solid #ccc;
 	float: left;
@@ -15,6 +15,10 @@ body{
 	box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
 }
 
+h1{
+	font-size: 30px;
+}
+
 h1, p{
 	border-radius: 10px;
 	padding: 10px;
@@ -22,15 +26,63 @@ h1, p{
 
 .centerBlock{
 	width: 660px;
-	background-color: red;
 	margin: 10px auto;
 }
 
-.glyphicon {
+.heart {
     font-size: 30px;
     cursor: pointer;
+    color: gray;
+}
+
+input[type=checkbox] {
+ 	-moz-appearance:none;
+	-webkit-appearance:none;
+	-o-appearance:none;
+	border: none;
+	outline: 0;
+}
+
+input[type=checkbox]:focus{
+    outline: 0;
+}
+
+input[type=checkbox]:checked{
+	color: red;
+}
+
+input[type='text'] {
+	margin-bottom: 10px; 
 }
 
 .red{
 	color: red;
+}
+
+.gray{
+	color: gray;
+}
+
+.blue{
+	color: #5080d8;
+}
+
+header{
+	background-color: #cce5ff;
+	float: none;
+	width: auto;
+}
+
+.input-group{
+	margin: 20px 20px 10px;
+}
+
+.glyphicon-trash, .glyphicon-ok-circle, .glyphicon-remove-circle, .glyphicon-pencil{
+	margin-top: 20px;
+	font-size: 25px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.glyphicon-ok-circle, .glyphicon-remove-circle{
+	font-size: 40px;
 }

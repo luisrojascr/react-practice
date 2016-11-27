@@ -1,7 +1,13 @@
 var Comida = React.createClass({
+    getInitialState: function(){
+        return{
+            like: Boolean(this.props.like)
+        };
+    },
     handleLike: function(){
-        var nombreComida = this.props.nombre;
-        alert("Comida favorita: " + nombreComida);
+        this.setState({
+            like: !this.state.like
+        });
     },
     render: function() {
         return (
@@ -11,25 +17,46 @@ var Comida = React.createClass({
                     Comida <i>{this.props.children}</i>
                 </p>
                 <p>
-                    <span onClick={this.handleLike}
-                    className="glyphicon glyphicon-heart glyphicon-heart-lg red">
-                    </span>
+                    <input 
+                    onChange={this.handleLike}
+                    defaultChecked={this.state.like}
+                    type="checkbox" className="glyphicon glyphicon-heart glyphicon-heart-lg" />
+                    <br />
+                    Like: <b>{String(this.state.like)}</b>
                 </p>
             </div>
-            );
+        );
     }
 });
 
-ReactDOM.render(<div className="centerBlock">
-        <Comida nombre="Gallopinto">
-            Tica
-        </Comida>
-        <Comida nombre="Paella">
-            Española
-        </Comida>
-        <Comida nombre="Ceviche">
-            Peruana
-        </Comida>
-    </div>
-    , document.getElementById('container')
-);
+var ListaComida = React.createClass({
+    getInitialState: function(){
+        return{
+            comidas: ['Gallopinto', 'Paella', 'Ceviche']
+        };
+    },
+    eachItem: function(comida, i){
+        return(
+            <Comida key={i} index={i} nombre={comida}>
+                {i+1}
+            </Comida>
+        );
+    },
+    render: function(){
+        return (
+            <div className="centerBlock">
+                <header>
+                    <h1>Mis comidas favoritas</h1>
+                    <i>Total: {this.state.comidas.length}</i>
+                </header>
+                <div className="comidas">
+                    {
+                        this.state.comidas.map(this.eachItem)
+                    }
+                </div>
+            </div>
+        );
+    }
+});
+
+ReactDOM.render(<ListaComida/>, document.getElementById('container'));
