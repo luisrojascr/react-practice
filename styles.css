@@ -2,7 +2,7 @@ body{
 	padding-top:20px; 
 }
 
-header, .comidas div{
+header, .comidas > div{
 	background-color: #f2f2f2;
 	border: 1px solid #ccc;
 	float: left;
@@ -15,8 +15,12 @@ header, .comidas div{
 	box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
 }
 
-h1{
+.comidas h1{
 	font-size: 30px;
+	width: 160px;
+  	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
 }
 
 h1, p{
@@ -85,4 +89,23 @@ header{
 }
 .glyphicon-ok-circle, .glyphicon-remove-circle{
 	font-size: 40px;
+}
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+.glyphicon-trash{
+	cursor: pointer;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
 }
